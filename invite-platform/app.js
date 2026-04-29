@@ -320,6 +320,7 @@ document.querySelectorAll('.menu-item').forEach(item => {
         e.preventDefault();
         const t = e.currentTarget.getAttribute('data-target');
         if(t === 'home') { setActiveNav('home'); renderDashboard(); }
+        else if(t === 'photographers') { setActiveNav('photographers'); typeof renderPhotographers === 'function' && renderPhotographers(); }
         else { setActiveNav(t); state.category = t; state.subFilter = 'All'; renderThemes(); }
     });
 });
