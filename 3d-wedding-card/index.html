@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Screen 3D Wedding Video</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-indian-traditional-festival-music-718.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Start Overlay -->
+    <div id="startScreen">
+        <div class="start-content">
+            <h1>Aarav & Diya</h1>
+            <p>Interactive Video Invitation</p>
+            <button id="startBtn">Play Invitation Video</button>
+        </div>
+    </div>
+
+    <!-- Falling Petals -->
+    <div id="petalsContainer"></div>
+
+    <!-- Video Screens Container -->
+    <div id="videoContainer">
+        
+        <!-- Scene 1: Ganesha -->
+        <div class="slide" id="slide1">
+            <div class="slide-content">
+                <img src="assets/ganesha_cover.png" alt="Ganesha" class="ganesha-img bounce-in">
+                <h2 class="mantra fade-up delay-1">|| Shree Ganeshay Namah ||</h2>
+            </div>
+        </div>
+
+        <!-- Scene 2: Family Invitation -->
+        <div class="slide" id="slide2">
+            <div class="slide-content border-frame">
+                <p class="fade-up">Together with their families</p>
+                <h3 class="family-names fade-up delay-1">Mr. & Mrs. Sharma<br><span class="and">&</span><br>Mr. & Mrs. Patel</h3>
+                <p class="fade-up delay-2">Joyfully invite you to share in their happiness</p>
+            </div>
+        </div>
+
+        <!-- Scene 3: Bride & Groom -->
+        <div class="slide" id="slide3">
+            <div class="slide-content">
+                <h1 class="couple-name bride slide-left">Diya</h1>
+                <h2 class="ampersand zoom-in delay-1">&</h2>
+                <h1 class="couple-name groom slide-right delay-1">Aarav</h1>
+                <p class="wedding-text fade-up delay-2">Are tying the knot!</p>
+            </div>
+        </div>
+
+        <!-- Scene 4: The 3D Book revealing Events -->
+        <div class="slide" id="slide4">
+            <div class="scene" id="mainScene">
+                <div class="book" id="weddingBook">
+                    <!-- Back Wrapper (Right Side of Open Book) -->
+                    <div class="page-wrapper back-wrapper">
+                        <div class="page inside-right">
+                            <div class="page-content book-inner">
+                                <h2 class="event-title">The Wedding</h2>
+                                <p class="date">Sunday, Nov 15th, 2026</p>
+                                <p class="time">7:00 PM onwards</p>
+                                <div class="separator-line"></div>
+                                <p class="venue-small">The Grand Taj Palace</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Front Wrapper (Flips Left) -->
+                    <div class="page-wrapper front-wrapper">
+                        <div class="page cover-front">
+                            <div class="page-content transparent-content">
+                                <div class="title-container">
+                                    <h1 class="invitation-title">Wedding Events</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page inside-left">
+                            <div class="page-content book-inner">
+                                <h2 class="event-title">Sangeet & Haldi</h2>
+                                <p class="date">Saturday, Nov 14th, 2026</p>
+                                <p class="time">10:00 AM onwards</p>
+                                <div class="separator-line"></div>
+                                <p class="venue-small">Sharma Residence</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 5: Venue & RSVP -->
+        <div class="slide" id="slide5">
+            <div class="slide-content border-frame">
+                <h2 class="venue-title fade-down">Venue</h2>
+                <h3 class="venue-name fade-up delay-1">The Grand Taj Palace</h3>
+                <p class="venue-address fade-up delay-1">Diplomatic Enclave, New Delhi</p>
+                <div class="separator-line delay-2"></div>
+                <p class="rsvp fade-up delay-3">RSVP<br>With love from friends & family</p>
+                
+                <button id="restartBtn" class="fade-up delay-4" style="margin-top:20px;">Replay Video</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

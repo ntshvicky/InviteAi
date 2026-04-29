@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InviteAI – Beautiful Invitation Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@500;700&family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span>Invite<em>AI</em></span>
+            </div>
+            <nav class="menu">
+                <a href="#" class="menu-item active" data-target="home"><i class="fa-solid fa-border-all"></i><span>Dashboard</span></a>
+                <a href="#" class="menu-item" data-target="Wedding"><i class="fa-solid fa-ring"></i><span>Wedding</span></a>
+                <a href="#" class="menu-item" data-target="Birthday"><i class="fa-solid fa-cake-candles"></i><span>Birthday</span></a>
+                <a href="#" class="menu-item" data-target="Anniversary"><i class="fa-solid fa-heart"></i><span>Anniversary</span></a>
+                <a href="#" class="menu-item" data-target="New Year"><i class="fa-solid fa-champagne-glasses"></i><span>New Year</span></a>
+                <a href="#" class="menu-item" data-target="Housewarming"><i class="fa-solid fa-house-chimney"></i><span>Housewarming</span></a>
+                <a href="#" class="menu-item" data-target="Baby Shower"><i class="fa-solid fa-baby"></i><span>Baby Shower</span></a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-chip">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=d4af37" alt="User">
+                    <span>My Invites</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+                    <h1 id="pageTitle">Select Event Category</h1>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-pill" id="searchToggle">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span>Search templates...</span>
+                    </div>
+                </div>
+            </header>
+
+            <div id="contentArea" class="content-area"></div>
+        </main>
+    </div>
+
+    <div class="fullscreen-modal hidden" id="fullscreenModal">
+        <div class="fs-toolbar">
+            <button onclick="closeFullscreen()"><i class="fa-solid fa-compress"></i> Exit Fullscreen</button>
+        </div>
+        <iframe id="fsIframe" frameborder="0"></iframe>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="characters.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

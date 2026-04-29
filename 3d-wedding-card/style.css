@@ -1,0 +1,410 @@
+:root {
+    --primary-red: #7b0d1e;
+    --dark-red: #4a0410;
+    --gold: #d4af37;
+    --light-gold: #fdf5e6;
+    --white: #fffdf5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1a0b0c;
+    background-image: url('assets/mandala_bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Lora', serif;
+    overflow: hidden;
+    margin: 0;
+}
+
+/* Start Overlay */
+#startScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(26, 11, 12, 0.95);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-in-out;
+}
+
+#startScreen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.start-content {
+    text-align: center;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    padding: 40px;
+    border-radius: 10px;
+    background-color: rgba(123, 13, 30, 0.5);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+.start-content h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+.start-content p {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+#startBtn, #restartBtn {
+    background-color: var(--gold);
+    color: var(--dark-red);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#startBtn:hover, #restartBtn:hover {
+    background-color: #f3e5ab;
+    box-shadow: 0 0 15px var(--gold);
+    transform: scale(1.05);
+}
+
+/* Petals Animation */
+#petalsContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 50;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #ff6b81;
+    border-radius: 15px 0 15px 0;
+    opacity: 0.8;
+    animation: fall linear infinite;
+    box-shadow: 0 0 5px rgba(255, 107, 129, 0.5);
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg) scale(0.8); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(110vh) rotate(360deg) scale(1.2); opacity: 0; }
+}
+
+/* Multi-Screen Sequence Layout */
+#videoContainer {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.slide.active {
+    opacity: 1;
+    pointer-events: all;
+    z-index: 20;
+}
+
+/* Slide Specific Styling */
+.slide-content {
+    text-align: center;
+    color: var(--gold);
+    width: 90%;
+    max-width: 600px;
+}
+
+.border-frame {
+    border: 3px solid var(--gold);
+    padding: 50px;
+    background-color: rgba(74, 4, 16, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.ganesha-img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+    margin-bottom: 30px;
+}
+
+.mantra {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+}
+
+.family-names {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    margin: 20px 0;
+    line-height: 1.6;
+    color: var(--light-gold);
+}
+
+.and {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: var(--gold);
+}
+
+.couple-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 7rem;
+    color: var(--gold);
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    margin: -10px 0;
+    line-height: 1;
+}
+
+.ampersand {
+    font-family: 'Cinzel', serif;
+    font-size: 4rem;
+    color: var(--primary-red);
+    text-shadow: 0 0 10px var(--gold);
+}
+
+.wedding-text {
+    font-family: 'Lora', serif;
+    font-size: 1.8rem;
+    margin-top: 30px;
+    font-style: italic;
+    color: var(--white);
+}
+
+.venue-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: var(--gold);
+}
+
+.venue-name {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.venue-address {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: var(--light-gold);
+}
+
+.separator-line {
+    width: 80px;
+    height: 2px;
+    background-color: var(--gold);
+    margin: 20px auto;
+}
+
+.rsvp {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    color: var(--white);
+    line-height: 1.5;
+}
+
+/* Animations for Active Slide Elements */
+.slide.active .fade-up { animation: fadeUp 1s ease-out forwards; }
+.slide.active .fade-down { animation: fadeDown 1s ease-out forwards; }
+.slide.active .zoom-in { animation: zoomIn 1s ease-out forwards; }
+.slide.active .slide-left { animation: slideLeft 1s ease-out forwards; }
+.slide.active .slide-right { animation: slideRight 1s ease-out forwards; }
+.slide.active .bounce-in { animation: bounceIn 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+
+.delay-1 { animation-delay: 1s !important; opacity: 0; }
+.delay-2 { animation-delay: 2s !important; opacity: 0; }
+.delay-3 { animation-delay: 3s !important; opacity: 0; }
+.delay-4 { animation-delay: 4s !important; opacity: 0; }
+
+@keyframes fadeUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes fadeDown { 0% { opacity: 0; transform: translateY(-30px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes zoomIn { 0% { opacity: 0; transform: scale(0.5); } 100% { opacity: 1; transform: scale(1); } }
+@keyframes slideLeft { 0% { opacity: 0; transform: translateX(-50px); } 100% { opacity: 1; transform: translateX(0); } }
+@keyframes slideRight { 0% { opacity: 0; transform: translateX(50px); } 100% { opacity: 1; transform: translateX(0); } }
+@keyframes bounceIn { 0% { opacity: 0; transform: scale(0.3); } 50% { opacity: 1; transform: scale(1.05); } 100% { opacity: 1; transform: scale(1); } }
+
+/* Slide 4: 3D Book Layout */
+.scene {
+    width: 450px;
+    height: 550px;
+    perspective: 2000px;
+    transform: scale(0.9);
+}
+
+.slide.active .scene {
+    animation: panScene 15s ease-in-out infinite alternate;
+}
+
+@keyframes panScene {
+    0% { transform: scale(1) translateX(-10px) rotateY(-2deg); }
+    100% { transform: scale(1) translateX(10px) rotateY(2deg); }
+}
+
+.book {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 2.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.book.is-open {
+    transform: translateX(225px) rotateX(5deg);
+}
+
+.page-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transition: transform 2.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transform-origin: left center;
+}
+
+.front-wrapper { z-index: 2; }
+.back-wrapper { z-index: 1; }
+
+.book.is-open .front-wrapper {
+    transform: rotateY(-180deg);
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    border-radius: 5px 15px 15px 5px;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.5);
+    background-color: var(--primary-red);
+    border: 2px solid var(--gold);
+}
+
+.cover-front {
+    transform: rotateY(0deg);
+    background-image: url('assets/ganesha_cover.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.title-container {
+    background: rgba(74, 4, 16, 0.85);
+    padding: 15px 30px;
+    border-radius: 10px;
+    border: 1px solid var(--gold);
+    margin-bottom: 40px;
+}
+
+.invitation-title {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+}
+
+.inside-left, .inside-right {
+    background-color: var(--white);
+    background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+}
+
+.inside-left {
+    transform: rotateY(180deg);
+    border-radius: 15px 5px 5px 15px;
+}
+
+.inside-right {
+    transform: rotateY(0deg);
+}
+
+.book-inner {
+    border: 2px solid var(--gold);
+    width: 90%;
+    height: 94%;
+    margin: 3% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: var(--dark-red);
+    margin-bottom: 20px;
+}
+
+.date {
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: var(--dark-red);
+    margin-bottom: 10px;
+}
+
+.time, .venue-small {
+    font-size: 1.1rem;
+    color: #444;
+}
+
+@media (max-width: 950px) {
+    .scene { width: 300px; height: 450px; }
+    .book.is-open { transform: translateX(150px); }
+    .couple-name { font-size: 4rem; }
+    .family-names { font-size: 1.5rem; }
+    .event-title { font-size: 2.5rem; }
+    .venue-title { font-size: 3rem; }
+}
